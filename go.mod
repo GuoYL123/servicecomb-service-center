@@ -2,6 +2,8 @@ module github.com/apache/servicecomb-service-center
 
 replace google.golang.org/grpc => google.golang.org/grpc v1.19.0
 
+replace github.com/go-chassis/kie-client => github.com/GuoYL123/kie-client v0.0.0-20201207123500-65ab523b55ba
+
 require (
 	bou.ke/monkey v1.0.2
 	github.com/NYTimes/gziphandler v1.0.2-0.20180820182813-253f1acb9d9f

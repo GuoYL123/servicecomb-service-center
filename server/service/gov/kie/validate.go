@@ -70,11 +70,11 @@ func retryValidate(val interface{}) error {
 	}
 	// item check
 	spec := val.(map[string]interface{})
-	maxAttempts, ok := spec["maxAttempts"].(int)
+	maxAttempts, ok := spec["maxAttempts"].(float64)
 	if !ok {
 		return fmt.Errorf("illegal item : %v", spec)
 	}
-	if maxAttempts >= 0 {
+	if maxAttempts < 0 {
 		return fmt.Errorf("maxAttempts must be a positive num : %v", spec)
 	}
 	_, ok = spec["onSame"].(bool)
@@ -97,7 +97,7 @@ func policyValidate(val interface{}) error {
 	if !ok {
 		return fmt.Errorf("illegal item : %v", val)
 	}
-	rules, ok := spec["rules"].(map[string]string)
+	rules, ok := spec["rules"].(map[string]interface{})
 	if !ok {
 		return fmt.Errorf("illegal item : %v", spec)
 	}
